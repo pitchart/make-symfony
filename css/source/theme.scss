@@ -1,0 +1,54 @@
+/**
+ * Black theme for reveal.js. This is the opposite of the 'white' theme.
+ *
+ * Copyright (C) 2015 Hakim El Hattab, http://hakim.se
+ */
+
+ // This file has been copied over from
+ // ../../bower_components/reveal.js/css/theme/source/black.scss
+
+ // See ../../bower_components/reveal.js/css/theme/README.md
+ // for further explanations on how to create a custom reveal.js theme.
+
+// Default mixins and settings -----------------
+@import "template/mixins";
+@import "template/settings";
+// ---------------------------------------------
+
+
+// Include theme-specific fonts
+@import url(../../bower_components/reveal.js/lib/font/source-sans-pro/source-sans-pro.css);
+
+// Override theme settings (see ../../bower_components/reveal.js/css/theme/template/settings.scss)
+$backgroundColor: rgb(34,34,34);
+$headingColor: rgb(256,256,256);
+
+$mainFontSize: 40px;
+$mainFont: 'Source Sans Pro', Helvetica, sans-serif;
+$headingFont: Share, Verdana, Arial, Helvetica, sans-serif;
+$headingTextShadow: none;
+$headingLetterSpacing: normal;
+$headingTextTransform: none;
+$headingFontWeight: 600;
+$linkColor: rgb(69,118,181);
+$linkColorHover: lighten( $linkColor, 15% );
+$selectionBackgroundColor: lighten( $linkColor, 25% );
+
+$heading1Size: 2.5em;
+$heading2Size: 1.6em;
+$heading3Size: 1.3em;
+$heading4Size: 1.0em;
+
+section.has-light-background {
+	&, h1, h2, h3, h4, h5, h6 {
+		color: rgb(25,117,188);
+	}
+}
+
+// Theme template ------------------------------
+@import "template/theme";
+@import url(../../plugin/reveal-title-footer/plugin/title-footer/title-footer.css);
+// ---------------------------------------------
+
+@import "theme/style";
+

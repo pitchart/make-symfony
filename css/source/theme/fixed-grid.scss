@@ -1,0 +1,70 @@
+@media screen {/* SCREEN */
+	/*** WRAP ***/
+	.gridWrap, .inlineGridWrap {
+		overflow: hidden;
+		width: 100%;
+		clear: both;
+	}
+	ul.gridWrap, ul.inlineGridWrap {
+		margin: 0;
+		padding-left: 0;
+		list-style: none;
+	}
+
+	.gridWrap:after, .inlineGridWrap:after  {
+		clear: both;
+		display: table;
+		line-height: 0;
+		content: "";
+	}
+
+	/* ******************************
+	/* NO BREAK
+	/* ****************************** */
+	/*** WRAP ***/
+	.gridWrap.noBreak > .grid { float: left; }
+
+	.inlineGridWrap { text-align: center; white-space: nowrap;}
+	.inlineGridWrap.noBreak > .grid { display: inline-block !important; white-space: normal;};
+
+}/* /SCREEN */
+
+/* **********************************************************************
+/* STEP
+/* ********************************************************************** */
+@media screen and (min-width: 20.063em) {/* SCREEN | XS - LANDSCAPE MOBILE */
+	/*** GRID ***/
+	.gridWrap.stepXS > .grid {
+		float: left;
+	}
+
+}/* /SCREEN */
+
+@media screen and (min-width: 30.063em) {/* SCREEN | S - PORTRAIT TABLET */
+	/*** GRID ***/
+	.gridWrap.stepS > .grid {
+		float: left;
+	}
+}/* /SCREEN */
+
+@media screen and (min-width: 40.063em) {/* SCREEN | M - LANDSCAPE TABLET */
+	/*** GRID ***/
+	.gridWrap.stepM > .grid {
+		float: left;
+	}
+}/* /SCREEN */
+
+@media screen and (min-width: 48.063em) {/* SCREEN | L - SMALL DESKTOP */
+	/*** GRID ***/
+	.gridWrap.stepL > .grid {
+		float: left;
+	}
+
+}/* /SCREEN */
+
+@media screen and (min-width: 64.063em) {/* SCREEN | XL - DESKTOP */
+	/*** GRID ***/
+	.gridWrap.stepXL > .grid {
+		float: left;
+	}
+}/* /SCREEN */

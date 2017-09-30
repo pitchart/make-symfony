@@ -1,0 +1,80 @@
+<section>
+    <h2>Problématique</h2>
+    <ul class="fragment">
+        <li>Nous effectuons les mêmes tâches de manière récurrente</li>
+        <li class="fragment">La documentation, c'est difficile à entretenir !</li>
+        <li class="fragment">Il est facile d'oublier une tâche quand on manque de temps</li>
+    </ul>
+</section>
+<section>
+    <h3>Tâches récurrentes :</h3>
+    <h4>Repartir de <code>develop</code> pour créer une nouvelle branche</h4>
+    <ul>
+        <li>Mettre les modifications en cours de côté</li>
+        <li class="fragment">Changer de branche pour <code>develop</code></li>
+        <li class="fragment">Récupérer la dernière version du code</li>
+        <li class="fragment">Réappliquer les modifications</li>
+        <li class="fragment">Mettre à jour les packages</li>
+        <li class="fragment">Mettre à jour la structure de la DB</li>
+        <li class="fragment">Ajouter du contenu</li>
+        <li class="fragment">Mettre à jour les traductions</li>
+        <li class="fragment">+ toute nouvelle tâche introduite par une nouvelle fonctionnalité</li>
+    </ul>
+</section>
+<section>
+    <h3>Tâches récurrentes :</h3>
+    <h4>Vidange du cache</h4>
+    <ul class="fragment">
+        <li>En environnement de développement ?</li>
+        <li>En environnement de production ?</li>
+        <li>En environnement de test ?</li>
+        <li class="fragment">1 seule tâche nécessaire ?</li>
+    </ul>
+</section>
+<section>
+    <h3>Documentation</h3>
+    <blockquote>
+        Ah, au fait, comment j'installe l'application ?
+    </blockquote>
+    <p class="author">
+        Un développeur, toutes les heures ...
+        <br><span class="fragment">(au minimum)</span>
+    </p>
+</section>
+<section>
+    <h3>Documentation</h3>
+    <h4>Procédure d'installation ?</h4>
+    <p class="fragment">L'installation est souvent documentée en début de projet (README)</p>
+    <p class="fragment">Pour les développeurs arrivant sur le projet ?</p>
+    <p class="fragment">Liée aux versions, fonctionnalités ?</p>
+    <p class="fragment">Liée à l'environnement utilisé (développement, intégration, production ...) ?</p>
+    <p class="fragment solution">Optimiser en 1 commande</p>
+</section>
+<section>
+    <h3>Lutter contre l'oubli ...</h3>
+    <h4>Ne pas pousser de code qui plante !</h4>
+    <p class="fragment">push = tests + push</p>
+    <p class="fragment">tests = données de test + exécution ?</p>
+    <p class="fragment">push = dump + push + restore ?</p>
+</section>
+<section>
+    <h3>Lutter contre l'oubli ...</h3>
+    <blockquote>
+        J'ai mis à jour les sources et ça ne fonctionne plus.
+    </blockquote>
+    <p class="author">
+        Un développeur, un matin
+        <br><span class="fragment">lors d'un standup meeting ...</span>
+    </p>
+    <div class="fragment">
+    <blockquote>
+        Ah oui j'ai fait des modifications et il faut exécuter la commande ...
+    </blockquote>
+    <p class="author">
+        Un autre développeur
+        <br><span class="fragment">2 jours plus tard, après son RTT</span>
+        <br><span class="fragment">et 4 cafés ...</span>
+    </p>
+    </div>
+    <p class="fragment solution">Versionner les tâches et leur contenu</p>
+</section>

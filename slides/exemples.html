@@ -1,0 +1,105 @@
+<section>
+    <h2>Exemples</h2>
+</section>
+<section>
+    <h3>push = tests + push</h3>
+    <pre><code>PHPUNIT=php bin/phpunit
+
+test-unit:
+    $(PHPUNIT) --testsuite unit_tests
+
+test-func:
+    $(PHPUNIT) --testsuite unit_functional
+
+test: test-unit test-func
+
+push:
+    $(PHPUNIT)
+    git push
+
+.PHONY: test-unit test-func test push</code></pre>
+</section>
+<section>
+    <h3>Vider <span class="focus">tous</span> les caches (Symfony)</h3>
+    <pre><code>CONSOLE=php bin/console
+
+cache-clear:
+    $(CONSOLE) cache:clear
+    $(CONSOLE) cache:clear --env=prod
+    $(CONSOLE) cache:clear --env=test
+</code></pre>
+</section>
+<section>
+    <h3>Installer l'application (Symfony)</h3>
+    <pre><code>CONSOLE=php bin/console
+COMPOSER?=/usr/bin/composer
+
+install: git-subup composer-install db db-update db-fixtures cache-clear
+
+git-subup:
+	git submodule update --init
+
+composer-install:
+	$(COMPOSER) install
+
+cache-clear:
+    $(CONSOLE) cache:clear
+    $(CONSOLE) cache:clear --env=prod
+    $(CONSOLE) cache:clear --env=test
+
+db:
+    $(CONSOLE) doctrine:database:create --if-not-exists
+
+db-update:
+    $(CONSOLE) doctrine:schema:update --force
+
+db-fixtures: ## Update database fixtures
+	$(CONSOLE) doctrine:fixtures:load --fixtures=src/ApplicationFixtures/ --append
+
+.PHONY: git-subup composer-install db db-update db-fixtures cache-clear install
+</code></pre>
+</section>
+<section>
+    <h3>Installer l'application (TYPO3)</h3>
+    <pre><code>COMPOSER?=/usr/bin/composer
+CONSOLE= php vendor/bin/typo3cms
+
+install: install-composer install-console cache-clear autoload translations
+
+autoload:
+	$(COMPOSER) dumpautoload
+
+install-composer:
+    $(COMPOSER) install
+
+install-console:
+	$(CONSOLE) install:setup
+
+cache-clear:
+	$(CONSOLE) cache:flush
+
+translations:
+	$(CONSOLE) language:update
+
+.PHONY: install install-composer install-console cache-clear autoload translations
+    </code></pre>
+</section>
+<section>
+    <h3>En bonus : documenter les tâches disponibles</h3>
+    <p class="fragment">&copy; Kevin MATHIEU</p>
+    <pre><code>help:       ## Show this help.
+	@fgrep -h "##" $(MAKEFILE_LIST) | fgrep -v fgrep | sed -e 's/\\$$//' | sed -e 's/##//'
+
+server:     ## Launcher server
+	$(CONSOLE) server:start
+
+cache:      ## Clear cache
+	$(CONSOLE) cache:clear
+	$(CONSOLE) cache:clear --env=test
+	$(CONSOLE) cache:clear --env=prod</code></pre>
+<pre><code>$ make help
+help:        Show this help.
+server:      Launcher server
+cache:       Clear cache
+</code></pre>
+</section>

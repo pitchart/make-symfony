@@ -1,0 +1,130 @@
+<section>
+    <h2>Make</h2>
+    <img src="https://www.gnu.org/graphics/bold_initiative_gnu_head.svg" height="400" alt="" />
+    <p>Depuis 1977 !</p>
+</section>
+<section>
+    <ul>
+        <li>Simple</li>
+        <li>Configurable</li>
+        <li>Intelligent</li>
+        <li>Portable</li>
+        <li>Indépendant</li>
+        <li class="fragment">+ configuration versionnée sur le projet</li>
+        <li class="fragment">+ autocomplétion</li>
+        <li class="fragment"><a href="http://fabien.potencier.org/symfony4-best-practices.html#makefile">+ intégré au wrokflow de Symfony 4</a></li>
+    </ul>
+</section>
+<section>
+    <h3>Simple</h3>
+    <pre><code>$ make
+make: *** Pas de cible spécifiée et aucun makefile
+n'a été trouvé. Arrêt.
+</code></pre>
+</section>
+<section>
+    <h4>Les règles d'écriture d'un Makefile</h4>
+    <pre><code>VARIABLE = [valeur]
+
+.PHONY: [liste de cibles ne correspondant pas à des chemins]
+
+cible ...: [prérequis ...]
+    [recette]
+    [...]
+</code>
+<span class="fragment align-left ">  &uarr; ATTENTION : ceci est une tabulation !!!</span>
+
+</pre>
+
+</section>
+<section>
+    <h3>Configurable</h3>
+<pre><code>vendor: composer.lock
+    composer install
+
+composer.lock: composer.json
+    composer update</code></pre>
+</section>
+<section>
+    <h3>Simple (encore)</h3>
+    <pre><code>$ make
+composer install</code></pre>
+</section>
+<section>
+    <h3>Intelligent</h3>
+    <pre><code>$ make
+make: `vendor' is up to date.</code></pre>
+</section>
+<section>
+    <h3>Indépendant</h3>
+    <pre><code>vendor: composer.lock
+    composer install
+
+composer.lock: composer.json
+    composer update
+
+node_modules: package.json
+    npm install</code></pre>
+</section>
+<section>
+    <h3>Configurable</h3>
+    <pre><code>packages: vendor node_modules
+
+.PHONY: packages
+
+vendor: composer.lock
+    composer install
+
+composer.lock: composer.json
+    composer update
+
+node_modules: package.json
+    npm install</code></pre>
+</section>
+<section>
+    <h3>Simple (toujours)</h3>
+    <pre><code>$ make packages
+composer install
+...
+npm install
+...</code></pre>
+</section>
+<section>
+    <h3>Efficace (bonus)</h3>
+    <pre><code>$ make -j2 packages
+composer install
+npm install
+...
+...</code></pre>
+</section>
+<section>
+    <h3>Configurable</h3>
+    <pre><code>COMPOSER?=/usr/bin/composer
+
+vendor: composer.lock
+    $(COMPOSER) install
+
+composer.lock: composer.json
+    $(COMPOSER) update</code></pre>
+
+<pre><code>$ make vendor
+composer install
+...
+make COMPOSER="php composer.phar" vendor
+php composer.phar install
+...
+
+</code></pre>
+</section>
+<section>
+    <h3>Configurable</h3>
+    <pre><code>include var/environment/prod.env
+
+COMPOSER?=/usr/bin/composer
+
+vendor: composer.lock
+    $(COMPOSER) install
+
+composer.lock: composer.json
+    $(COMPOSER) update</code></pre>
+</section>

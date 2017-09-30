@@ -1,0 +1,3 @@
+[submodule "plugin/reveal-title-footer"]
+	path = plugin/reveal-title-footer
+	url = https://github.com/e-gor/Reveal.js-Title-Footer.git

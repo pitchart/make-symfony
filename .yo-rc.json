@@ -1,0 +1,8 @@
+{
+  "generator-reveal": {
+    "presentationTitle": "Domain Driven Design",
+    "packageVersion": "0.0.0",
+    "useSass": true,
+    "deployToGithubPages": false
+  }
+}
