@@ -138,7 +138,7 @@
               { src: 'bower_components/reveal.js/plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( '[data-html]' ) || !!document.querySelector( 'pre code' ) || !!document.querySelector( '[data-markdown]' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
               { src: 'bower_components/reveal.js/plugin/zoom-js/zoom.js', async: true },
               { src: 'bower_components/reveal.js/plugin/notes/notes.js', async: true },
-              { src: 'plugin/reveal-title-footer//plugin/reveal-title-footer/plugin/title-footer/title-footer/title-footer.js', async: true, callback: function() { title_footer.initialize('Boostez votre worflow Symfony avec Make - pitchart', 'rgba(0,0,0,0.2)'); } },
+              { src: 'plugin/title-footer/title-footer.js', async: true, callback: function() { title_footer.initialize('Boostez votre worflow Symfony avec Make - pitchart', 'rgba(0,0,0,0.2)'); } },
               { src: 'js/loadhtmlslides.js', condition: function() { return !!document.querySelector( '[data-html]' ); } }
             ]
           });
