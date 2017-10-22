@@ -321,6 +321,8 @@ body {
   .reveal figcaption {
     text-align: center;
     font-style: italic; }
+  .reveal blockquote {
+    width: 100%; }
   .reveal pre {
     width: 100%;
     font-size: 0.68em; }
@@ -374,7 +376,7 @@ body {
       display: inline;
       margin-right: 0.25em; }
   .reveal .solution {
-    color: #003875; }
+    color: #08C; }
     .reveal .solution::before {
       content: "=>";
       margin-right: 0.325em; }
@@ -387,7 +389,7 @@ body {
     color: #B9B9B9; }
   .reveal .opq-color {
     color: #3eab34 !important; }
-  .reveal .sf2-color {
+  .reveal .sf-color {
     color: #08C !important; }
   .reveal .php-color {
     color: #6C7EB7 !important; }
