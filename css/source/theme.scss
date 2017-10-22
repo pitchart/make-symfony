@@ -47,7 +47,7 @@ section.has-light-background {
 
 // Theme template ------------------------------
 @import "template/theme";
-@import url(../../plugin/reveal-title-footer/plugin/title-footer/title-footer.css);
+@import "plugin/title-footer";
 // ---------------------------------------------
 
 @import "theme/style";
