@@ -1,6 +1,6 @@
 {
   "name": "pitchart-make-symfony",
-  "description": "Améliorez votre worflow Symfony avec Make",
+  "description": "Boostez votre worflow Symfony avec Make",
   "version": "0.0.0",
   "private": true,
   "devDependencies": {
