@@ -7,4 +7,10 @@ install:
 serve:
 	grunt serve
 
-.PHONY: install serve
+dist:
+	grunt dist
+	cd dist && git add .
+	cd dist && git commit -m "New release"
+	cd dist && git push
+
+.PHONY: install serve dist
