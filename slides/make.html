@@ -1,7 +1,7 @@
 <section>
     <h2>Make</h2>
     <img src="https://www.gnu.org/graphics/bold_initiative_gnu_head.svg" height="400" alt="" />
-    <p>Depuis 1977 !</p>
+    <p>Task runner depuis 1977 !</p>
 </section>
 <section>
     <ul>
@@ -10,16 +10,20 @@
         <li>Intelligent</li>
         <li>Portable</li>
         <li>Indépendant</li>
-        <li class="fragment">+ configuration versionnée sur le projet</li>
-        <li class="fragment">+ autocomplétion</li>
-        <li class="fragment"><a href="http://fabien.potencier.org/symfony4-best-practices.html#makefile">+ intégré au wrokflow de Symfony 4</a></li>
+        <li class="fragment">+ <span class="t3-color">autocomplétion</span></li>
+        <li class="fragment">+ <a href="http://fabien.potencier.org/symfony4-best-practices.html#makefile">intégré au workflow de Symfony 4</a></li>
+        <li class="fragment">- <a href="http://fabien.potencier.org/symfony4-best-practices.html#makefile">retiré du workflow de Symfony 4, mais on peut quand même s'en servir</a></li>
     </ul>
 </section>
 <section>
     <h3>Simple</h3>
     <pre><code>$ make
 make: *** Pas de cible spécifiée et aucun makefile
-n'a été trouvé. Arrêt.
+    n'a été trouvé. Arrêt.
+</code></pre>
+<pre class="fragment"><code>$ make me-rich
+make: *** Aucune règle pour fabriquer
+    la cible « me-rich ». Arrêt.
 </code></pre>
 </section>
 <section>
@@ -32,10 +36,22 @@ cible ...: [prérequis ...]
     [recette]
     [...]
 </code>
-<span class="fragment align-left ">  &uarr; ATTENTION : ceci est une tabulation !!!</span>
+<span class="fragment align-left ">  <span class="t3-color">&uarr; ATTENTION :</span> ceci est une <span class="focus">tabulation</span> !!!</span>
 
 </pre>
+<pre class="fragment"><code>#.editorconfig
+[Makefile]
+indent_style = tab</code></pre>
+</section>
+<section>
+    <h3>.PHONY ???</h3>
+<pre class="fragment"><code>#Makefile
 
+cico:
+    echo "mexiiiiiiiiiiiiiiiiiiiiiiiiiicooooooooooooo"
+
+.PHONY: cico
+</code></pre>
 </section>
 <section>
     <h3>Configurable</h3>
@@ -118,13 +134,16 @@ php composer.phar install
 </section>
 <section>
     <h3>Configurable</h3>
-    <pre><code>include var/environment/prod.env
+    <pre><code>SYMFONY_ENV?=dev
+include var/environment/$(SYMFONY_ENV).env
 
 COMPOSER?=/usr/bin/composer
 
 vendor: composer.lock
-    $(COMPOSER) install
-
-composer.lock: composer.json
-    $(COMPOSER) update</code></pre>
+ifeq ($(SYMFONY_ENV), prod)
+	$(COMPOSER) install --no-dev
+else
+	$(COMPOSER) install
+endif
+</code></pre>
 </section>

@@ -1,8 +1,11 @@
 [
+    "intro.html",
     "index.html",
     "problematique.html",
     "solution.html",
     "make.html",
     "exemples.html",
-    "references.html"
+    "symfony4.html",
+    "references.html",
+    "merci.html"
 ]

@@ -2,22 +2,21 @@
     <h2>Problématique</h2>
     <ul class="fragment">
         <li>Nous effectuons les mêmes tâches de manière récurrente</li>
-        <li class="fragment">La documentation, c'est difficile à entretenir !</li>
-        <li class="fragment">Il est facile d'oublier une tâche quand on manque de temps</li>
+        <li class="fragment">La documentation, c'est difficile à maintenir !</li>
+        <li class="fragment">Il est facile d'oublier une action / tâche quand on manque de temps</li>
     </ul>
 </section>
 <section>
     <h3>Tâches récurrentes :</h3>
-    <h4>Repartir de <code>develop</code> pour créer une nouvelle branche</h4>
+    <h4>Créer une feature branche</h4>
     <ul>
         <li>Mettre les modifications en cours de côté</li>
-        <li class="fragment">Changer de branche pour <code>develop</code></li>
+        <li class="fragment">Changer de branche pour <code class="t3-color">master</code></li>
         <li class="fragment">Récupérer la dernière version du code</li>
         <li class="fragment">Réappliquer les modifications</li>
         <li class="fragment">Mettre à jour les packages</li>
         <li class="fragment">Mettre à jour la structure de la DB</li>
         <li class="fragment">Ajouter du contenu</li>
-        <li class="fragment">Mettre à jour les traductions</li>
         <li class="fragment">+ toute nouvelle tâche introduite par une nouvelle fonctionnalité</li>
     </ul>
 </section>
@@ -25,11 +24,13 @@
     <h3>Tâches récurrentes :</h3>
     <h4>Vidange du cache</h4>
     <ul class="fragment">
-        <li>En environnement de développement ?</li>
-        <li>En environnement de production ?</li>
-        <li>En environnement de test ?</li>
-        <li class="fragment">1 seule tâche nécessaire ?</li>
+        <li>--env=(dev|prod|test) ?</li>
+        <li>Quel cache ? symfony / doctrine / oppcode / apc / redis ...</li>
+        <li class="fragment">1 seule action nécessaire ?</li>
     </ul>
+</section>
+<section>
+    <img src="resources/img/documentation.jpg" alt="">
 </section>
 <section>
     <h3>Documentation</h3>
@@ -46,9 +47,12 @@
     <h4>Procédure d'installation ?</h4>
     <p class="fragment">L'installation est souvent documentée en début de projet (README)</p>
     <p class="fragment">Pour les développeurs arrivant sur le projet ?</p>
-    <p class="fragment">Liée aux versions, fonctionnalités ?</p>
+    <p class="fragment">Liée aux versions / fonctionnalités ?</p>
     <p class="fragment">Liée à l'environnement utilisé (développement, intégration, production ...) ?</p>
     <p class="fragment solution">Optimiser en 1 commande</p>
+</section>
+<section>
+    <img src="resources/img/forget.jpg" alt="">
 </section>
 <section>
     <h3>Lutter contre l'oubli ...</h3>
@@ -68,7 +72,7 @@
     </p>
     <div class="fragment">
     <blockquote>
-        Ah oui j'ai fait des modifications et il faut exécuter la commande ...
+        Ah oui j'ai fait des modifications l'autre matin. Si vous récupérez la dernière version, il faut exécuter la commande ...
     </blockquote>
     <p class="author">
         Un autre développeur
