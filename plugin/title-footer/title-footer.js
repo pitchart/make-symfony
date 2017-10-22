@@ -67,13 +67,13 @@ title_footer.initialize=function(title,background)
 {
 
 	// Link to the Title-Footer CSS
-
+/*
 	var link=document.createElement("link");
 	link.href="plugin/title-footer/title-footer.css";
 	link.type="text/css";
 	link.rel="stylesheet";
 	document.getElementsByTagName("head")[0].appendChild(link);
-
+*/
 	// Initialize properties according to parameters
 
 	this.background=background || 'rgba(0,0,0,0.1)';
