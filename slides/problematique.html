@@ -24,7 +24,7 @@
     <h3>Tâches récurrentes :</h3>
     <h4>Vidange du cache</h4>
     <ul class="fragment">
-        <li>--env=(dev|prod|test) ?</li>
+        <li>php bin/console cache:clear --env=(dev|prod|test) ?</li>
         <li>Quel cache ? symfony / doctrine / oppcode / apc / redis ...</li>
         <li class="fragment">1 seule action nécessaire ?</li>
     </ul>
@@ -56,10 +56,10 @@
 </section>
 <section>
     <h3>Lutter contre l'oubli ...</h3>
-    <h4>Ne pas pousser de code qui plante !</h4>
-    <p class="fragment">push = tests + push</p>
-    <p class="fragment">tests = données de test + exécution ?</p>
-    <p class="fragment">push = dump + push + restore ?</p>
+    <h4>Ne pas pousser de code qui plante</h4>
+    <p class="fragment">better push = tests + push</p>
+    <p class="fragment">tests = jeu de tests + exécution</p>
+    <p class="fragment">better push = dump + tests + push + restore</p>
 </section>
 <section>
     <h3>Lutter contre l'oubli ...</h3>
