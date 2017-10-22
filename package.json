@@ -1,6 +1,6 @@
 {
-  "name": "pitchart-reveal-template",
-  "description": "Titre de la présentation",
+  "name": "pitchart-make-symfony",
+  "description": "Améliorez votre worflow Symfony avec Make",
   "version": "0.0.0",
   "private": true,
   "devDependencies": {
@@ -19,5 +19,9 @@
   },
   "scripts": {
     "test": "grunt test"
+  },
+  "repository" : {
+    "type" : "git",
+    "url" : "https://github.com/pitchart/make-symfony.git"
   }
 }
