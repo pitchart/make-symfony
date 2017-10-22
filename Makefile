@@ -6,3 +6,5 @@ install:
 
 serve:
 	grunt serve
+
+.PHONY: install serve
