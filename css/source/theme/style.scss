@@ -139,6 +139,17 @@
         border-top-width: 22px;
         border-top-color: #f58006   ;
     }
+    .pros, .cons {
+        list-style-type: none;
+        list-style-position: inside;
+    }
+    .pros::before, .cons::before {
+        display: inline;
+        margin-left:-0.875em; margin-right:0.25em;
+        font-family: "monotype", "courier new", sans-serif;
+    }
+    .pros::before { content: '+'; }
+    .cons::before { content: '-'; }
 
     .biblio {}
 }

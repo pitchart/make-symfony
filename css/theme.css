@@ -424,6 +424,18 @@ body {
     margin-top: 12px;
     border-top-width: 22px;
     border-top-color: #f58006; }
+  .reveal .pros, .reveal .cons {
+    list-style-type: none;
+    list-style-position: inside; }
+  .reveal .pros::before, .reveal .cons::before {
+    display: inline;
+    margin-left: -0.875em;
+    margin-right: 0.25em;
+    font-family: "monotype", "courier new", sans-serif; }
+  .reveal .pros::before {
+    content: '+'; }
+  .reveal .cons::before {
+    content: '-'; }
 
 /*** GRID ***/
 .gridWrap {
