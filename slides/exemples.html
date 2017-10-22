@@ -1,0 +1,121 @@
+<section>
+    <h2>Exemples</h2>
+</section>
+<section>
+    <h3>Assurance qualité ?</h3>
+<pre><code>### QA
+qa: lint phpmd phpcs phpcpd
+
+lint:
+	find ./src -name "*.php" -exec /usr/bin/env php -l {} \; | grep "Parse error" > /dev/null && exit 1 || exit 0
+
+phploc:
+	php vendor/bin/phploc src
+
+phpmd:
+	php vendor/bin/phpmd --suffixes php src/ text codesize,design,naming,unusedcode,controversial
+
+phpcs:
+	php vendor/bin/phpcs --standard=PSR2 --extensions=php src/
+
+phpcpd:
+	php vendor/bin/phpcpd src/
+
+.PHONY: qa lint phploc phpmd phpcs phpcpd</code></pre>
+</section>
+<section>
+    <h3>push = tests + push</h3>
+    <pre><code>PHPUNIT=php bin/phpunit
+
+test-unit:
+    $(PHPUNIT) --testsuite unit_tests
+
+test-func:
+    $(PHPUNIT) --testsuite unit_functional
+
+test-all: test-unit test-func
+
+push: test-all
+    git push
+
+.PHONY: test-unit test-func test push</code></pre>
+</section>
+<section>
+    <h3>Vider <span class="focus t3-color">tous</span> les caches Symfony</h3>
+    <pre><code>SYMFONY_ENV?=dev
+CONSOLE=php bin/console
+
+cache-clear:
+    $(CONSOLE) cache:clear
+    $(CONSOLE) doctrine:cache:clear-metadata
+    $(CONSOLE) doctrine:cache:clear-result
+    $(CONSOLE) doctrine:cache:clear-query
+
+</code></pre>
+</section>
+<section>
+    <h3><span class="fragment t3-color">Ré-</span>Installer une application symfony</h3>
+    <pre><code>CONSOLE=php bin/console
+COMPOSER?=/usr/bin/composer
+
+install: git-subup composer-install db db-update db-fixtures cache-clear
+
+git-subup:
+	git submodule update --init
+
+composer-install:
+	$(COMPOSER) install
+
+cache-clear:
+    $(CONSOLE) cache:clear
+    $(CONSOLE) cache:clear --env=prod
+    $(CONSOLE) cache:clear --env=test
+
+db:
+    $(CONSOLE) doctrine:database:create --if-not-exists
+
+db-update:
+    $(CONSOLE) doctrine:schema:update --force
+
+db-fixtures: ## Updates database fixtures
+    $(CONSOLE) doctrine:fixtures:load --fixtures=src/ApplicationFixtures/ --append
+
+.PHONY: git-subup composer-install db db-update db-fixtures cache-clear install
+</code></pre>
+</section>
+<section>
+    <img src="https://i.imgflip.com/1xvgvh.jpg" alt="Pull up !">
+</section>
+<section>
+    <h3>Repartir d'une branche existante</h3>
+    <pre><code>CONSOLE=php bin/console
+COMPOSER?=/usr/bin/composer
+BRANCH=master
+
+pullup: branch git-subup new-vendors db-update db-fixtures cache-clear
+
+branch:
+	git stash
+	git checkout $(BRANCH)
+	git pull
+	git stash pop || :
+
+git-subup:
+	git submodule update --init
+
+new-vendors:
+    rm composer.lock
+    $(COMPOSER) install
+
+db-update:
+    $(CONSOLE) doctrine:schema:update --force
+
+db-fixtures: ## Update database fixtures
+    $(CONSOLE) doctrine:fixtures:load --fixtures=src/ApplicationFixtures/ --append
+
+cache-clear:
+    $(CONSOLE) cache:clear
+
+.PHONY: pullup branch git-subup new-vendors db-update db-fixtures cache-clear
+</code></pre>
+</section>

@@ -1,0 +1,84 @@
+<section>
+    <h2>Problématiques</h2>
+    <ul class="fragment">
+        <li>Nous exécutons les mêmes tâches de manière récurrente</li>
+        <li class="fragment">La documentation, c'est difficile à maintenir !</li>
+        <li class="fragment">Il est facile d'oublier une action / tâche quand on manque de temps</li>
+    </ul>
+</section>
+<section>
+    <h3>Tâches récurrentes :</h3>
+    <h4>Créer une feature branche</h4>
+    <ul>
+        <li>Mettre les modifications en cours de côté</li>
+        <li class="fragment">Changer de branche pour <code class="t3-color">master</code></li>
+        <li class="fragment">Récupérer la dernière version du code</li>
+        <li class="fragment">Réappliquer les modifications</li>
+        <li class="fragment">Mettre à jour les packages</li>
+        <li class="fragment">Mettre à jour la structure de la DB</li>
+        <li class="fragment">Ajouter du contenu</li>
+        <li class="fragment">+ toute nouvelle tâche introduite par une nouvelle fonctionnalité</li>
+    </ul>
+</section>
+<section>
+    <h3>Tâches récurrentes :</h3>
+    <h4>Vidange du cache</h4>
+    <ul class="fragment">
+        <li>php bin/console cache:clear --env=(dev|prod|test) ?</li>
+        <li>Quel cache ? symfony / doctrine / oppcode / apc / redis ...</li>
+        <li class="fragment">1 seule action nécessaire ?</li>
+    </ul>
+</section>
+<section>
+    <img src="resources/img/documentation.jpg" alt="">
+</section>
+<section>
+    <h3>Documentation</h3>
+    <blockquote>
+        Ah, au fait, comment j'installe l'application ?
+    </blockquote>
+    <p class="author">
+        Un développeur, toutes les heures ...
+        <br><span class="fragment">(au minimum)</span>
+    </p>
+</section>
+<section>
+    <h3>Documentation</h3>
+    <h4>Procédure d'installation ?</h4>
+    <p class="fragment">L'installation est souvent documentée en début de projet (README)</p>
+    <p class="fragment">Pour les développeurs arrivant sur le projet ?</p>
+    <p class="fragment">Liée aux versions / fonctionnalités ?</p>
+    <p class="fragment">Liée à l'environnement utilisé (développement, intégration, production ...) ?</p>
+    <p class="fragment solution">Documenté en 1 commande</p>
+</section>
+<section>
+    <img src="resources/img/forget.jpg" alt="">
+</section>
+<section>
+    <h3>Lutter contre l'oubli ...</h3>
+    <h4>Ne pas pousser de code qui plante</h4>
+    <p class="fragment">better push = tests + push</p>
+    <p class="fragment">tests = jeu de tests + exécution</p>
+    <p class="fragment">better push = dump + tests + push + restore</p>
+</section>
+<section>
+    <h3>Lutter contre l'oubli ...</h3>
+    <blockquote>
+        J'ai mis à jour les sources et ça ne fonctionne plus.
+    </blockquote>
+    <p class="author">
+        Un développeur, un matin
+        <br><span class="fragment">lors d'un standup meeting ...</span>
+    </p>
+    <div class="fragment">
+    <blockquote>
+        Ah oui j'ai fait des modifications l'autre matin. Si vous récupérez la dernière version, il faut exécuter la commande ...
+    </blockquote>
+    <p class="author">
+        Un autre développeur
+        <br><span class="fragment">2 jours plus tard, après son RTT</span>
+        <br><span class="fragment">et 4 cafés ...</span>
+    </p>
+    </div>
+    <p class="fragment solution">Versionner les tâches et leur utilisation</p>
+</section>
